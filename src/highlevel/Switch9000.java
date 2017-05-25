@@ -1,25 +1,25 @@
 package highlevel;
 
-import lowlevel.Bulb9000;
-
-public class Switch9000 {
-    public Bulb9000 bulb;
+public class Switch9000 implements Switch {
+    public Switchable switchable;
     public boolean on;
 
-    public Switch9000(Bulb9000 bulb) {
-        this.bulb = bulb;
+    public Switch9000(Switchable switchable) {
+        this.switchable = switchable;
     }
 
+    @Override
     public boolean isOn() {
         return on;
     }
 
+    @Override
     public void flip(){
         if (isOn()) {
-            bulb.turnOff();
+            switchable.turnOff();
             on = false;
         } else {
-            bulb.turnOn();
+            switchable.turnOn();
             on = true;
         }
     }
